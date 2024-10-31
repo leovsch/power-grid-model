@@ -124,6 +124,7 @@ struct AsymLineInput {
     double x_nb{nan};  // Lower triangle matrix values for R, X and C matrices
     double x_nc{nan};  // Lower triangle matrix values for R, X and C matrices
     double x_nn{nan};  // Lower triangle matrix values for R, X and C matrices
+    double c_aa{nan};  // Lower triangle matrix values for R, X and C matrices
     double c_ba{nan};  // Lower triangle matrix values for R, X and C matrices
     double c_bb{nan};  // Lower triangle matrix values for R, X and C matrices
     double c_ca{nan};  // Lower triangle matrix values for R, X and C matrices

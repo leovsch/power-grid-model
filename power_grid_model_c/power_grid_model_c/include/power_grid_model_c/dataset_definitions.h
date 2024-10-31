@@ -75,6 +75,7 @@ PGM_API extern PGM_MetaAttribute const* const PGM_def_input_asym_line_x_na;
 PGM_API extern PGM_MetaAttribute const* const PGM_def_input_asym_line_x_nb;
 PGM_API extern PGM_MetaAttribute const* const PGM_def_input_asym_line_x_nc;
 PGM_API extern PGM_MetaAttribute const* const PGM_def_input_asym_line_x_nn;
+PGM_API extern PGM_MetaAttribute const* const PGM_def_input_asym_line_c_aa;
 PGM_API extern PGM_MetaAttribute const* const PGM_def_input_asym_line_c_ba;
 PGM_API extern PGM_MetaAttribute const* const PGM_def_input_asym_line_c_bb;
 PGM_API extern PGM_MetaAttribute const* const PGM_def_input_asym_line_c_ca;

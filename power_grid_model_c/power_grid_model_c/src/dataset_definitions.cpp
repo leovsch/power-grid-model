@@ -64,6 +64,7 @@ PGM_MetaAttribute const* const PGM_def_input_asym_line_x_na = PGM_meta_get_attri
 PGM_MetaAttribute const* const PGM_def_input_asym_line_x_nb = PGM_meta_get_attribute_by_name(nullptr, "input", "asym_line", "x_nb");
 PGM_MetaAttribute const* const PGM_def_input_asym_line_x_nc = PGM_meta_get_attribute_by_name(nullptr, "input", "asym_line", "x_nc");
 PGM_MetaAttribute const* const PGM_def_input_asym_line_x_nn = PGM_meta_get_attribute_by_name(nullptr, "input", "asym_line", "x_nn");
+PGM_MetaAttribute const* const PGM_def_input_asym_line_c_aa = PGM_meta_get_attribute_by_name(nullptr, "input", "asym_line", "c_aa");
 PGM_MetaAttribute const* const PGM_def_input_asym_line_c_ba = PGM_meta_get_attribute_by_name(nullptr, "input", "asym_line", "c_ba");
 PGM_MetaAttribute const* const PGM_def_input_asym_line_c_bb = PGM_meta_get_attribute_by_name(nullptr, "input", "asym_line", "c_bb");
 PGM_MetaAttribute const* const PGM_def_input_asym_line_c_ca = PGM_meta_get_attribute_by_name(nullptr, "input", "asym_line", "c_ca");
