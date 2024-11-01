@@ -74,6 +74,7 @@ PGM_MetaAttribute const* const PGM_def_input_asym_line_c_na = PGM_meta_get_attri
 PGM_MetaAttribute const* const PGM_def_input_asym_line_c_nb = PGM_meta_get_attribute_by_name(nullptr, "input", "asym_line", "c_nb");
 PGM_MetaAttribute const* const PGM_def_input_asym_line_c_nc = PGM_meta_get_attribute_by_name(nullptr, "input", "asym_line", "c_nc");
 PGM_MetaAttribute const* const PGM_def_input_asym_line_c_nn = PGM_meta_get_attribute_by_name(nullptr, "input", "asym_line", "c_nn");
+PGM_MetaAttribute const* const PGM_def_input_asym_line_i_n = PGM_meta_get_attribute_by_name(nullptr, "input", "asym_line", "i_n");
 // component link
 PGM_MetaComponent const* const PGM_def_input_link = PGM_meta_get_component_by_name(nullptr, "input", "link");
 // attributes of input link

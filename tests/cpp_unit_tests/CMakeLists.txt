@@ -13,6 +13,7 @@ set(PROJECT_SOURCES
     "test_component_update.cpp"
     "test_three_phase_tensor.cpp"
     "test_node.cpp"
+    "test_asym_line.cpp"
     "test_line.cpp"
     "test_link.cpp"
     "test_load_gen.cpp"

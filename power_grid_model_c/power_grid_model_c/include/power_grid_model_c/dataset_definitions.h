@@ -85,6 +85,7 @@ PGM_API extern PGM_MetaAttribute const* const PGM_def_input_asym_line_c_na;
 PGM_API extern PGM_MetaAttribute const* const PGM_def_input_asym_line_c_nb;
 PGM_API extern PGM_MetaAttribute const* const PGM_def_input_asym_line_c_nc;
 PGM_API extern PGM_MetaAttribute const* const PGM_def_input_asym_line_c_nn;
+PGM_API extern PGM_MetaAttribute const* const PGM_def_input_asym_line_i_n;
 // component link
 PGM_API extern PGM_MetaComponent const* const PGM_def_input_link;
 // attributes of input link

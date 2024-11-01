@@ -134,6 +134,7 @@ struct AsymLineInput {
     double c_nb{nan};  // Lower triangle matrix values for R, X and C matrices
     double c_nc{nan};  // Lower triangle matrix values for R, X and C matrices
     double c_nn{nan};  // Lower triangle matrix values for R, X and C matrices
+    double i_n{nan};  // rated current
 
     // implicit conversions to BaseInput
     operator BaseInput&() { return reinterpret_cast<BaseInput&>(*this); }

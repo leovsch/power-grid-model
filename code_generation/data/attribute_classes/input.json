@@ -166,6 +166,11 @@
                         "c_nn"
                     ],
                     "description": "Lower triangle matrix values for R, X and C matrices"
+                },
+                {
+                    "data_type": "double",
+                    "names": "i_n",
+                    "description": "rated current"
                 }
             ]
         },
