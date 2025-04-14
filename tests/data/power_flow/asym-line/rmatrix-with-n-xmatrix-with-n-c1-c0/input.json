@@ -86,7 +86,8 @@
         "node": 1, 
         "status": 1, 
         "u_ref": 1.0,
-        "rx_ratio": 6.0
+        "rx_ratio": 6.0,
+        "sk": 1e15
       }
     ],
     "asym_load": [
