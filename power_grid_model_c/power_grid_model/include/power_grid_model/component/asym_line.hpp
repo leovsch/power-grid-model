@@ -36,6 +36,28 @@ class AsymLine : public Branch {
         y_series_abc_ = 1 / base_y * inv(z_series);
         y_shunt_abc_ = 1 / base_y * (2.0i * pi * system_frequency * c_matrix);
 
+        ComplexTensor<asymmetric_t> c_matrix_reduced_nf_original = y_shunt_abc_ * base_y / (2.0i * pi * system_frequency * 1e-9);
+        if ( is_nan(asym_line_input.c0) && is_nan(asym_line_input.c1) && !is_nan(asym_line_input.c_nn)) {
+
+            // TODO Experimenting with z_matrix inverse
+            ComplexTensor4 c_matrix_neutral = ComplexTensor4(asym_line_input.c_aa, asym_line_input.c_bb, asym_line_input.c_cc, asym_line_input.c_nn, asym_line_input.c_ba, asym_line_input.c_ca, asym_line_input.c_na, asym_line_input.c_cb, asym_line_input.c_nb, asym_line_input.c_nc);
+            ComplexTensor4 y_matrix_neutral = 1 / base_y * (2.0i * pi * system_frequency * c_matrix_neutral);
+            ComplexTensor4 z_matrix_neutral = y_matrix_neutral.matrix().inverse().array();
+            ComplexTensor<asymmetric_t> z_matrix = kron_reduction(z_matrix_neutral);
+            ComplexTensor<asymmetric_t> y_shunt = inv(z_matrix);
+            ComplexTensor<asymmetric_t> c_matrix_reduced_nf = y_shunt  * base_y / (2.0i * pi * system_frequency * 1e-9);
+
+            // TODO Experimenting with z_matrix inverse in nano scale
+            ComplexTensor4 c_matrix_neutral_nano = 1e9 * ComplexTensor4(asym_line_input.c_aa, asym_line_input.c_bb, asym_line_input.c_cc, asym_line_input.c_nn, asym_line_input.c_ba, asym_line_input.c_ca, asym_line_input.c_na, asym_line_input.c_cb, asym_line_input.c_nb, asym_line_input.c_nc);
+            ComplexTensor4 y_matrix_neutral_nano = 1 / base_y * (2.0i * pi * system_frequency * c_matrix_neutral_nano);
+            ComplexTensor4 z_matrix_neutral_nano = y_matrix_neutral_nano.matrix().inverse().array();
+            ComplexTensor<asymmetric_t> z_matrix_nano = kron_reduction(z_matrix_neutral_nano);
+            ComplexTensor<asymmetric_t> y_shunt_nano = inv(z_matrix_nano) * 1e-9;
+            ComplexTensor<asymmetric_t> c_matrix_reduced_nano = y_shunt_nano  * base_y / (2.0i * pi * system_frequency * 1e-9);
+
+            y_shunt_abc_ = y_shunt;
+        }
+
     }
 
     // override getter
