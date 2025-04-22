@@ -72,8 +72,12 @@ class AsymLine : public Branch {
         if (!is_nan(asym_line_input.c0) && !is_nan(asym_line_input.c1)) {
             c_matrix = ComplexTensor<asymmetric_t>{(2.0 * asym_line_input.c1 + asym_line_input.c0) / 3.0, (asym_line_input.c0 - asym_line_input.c1) / 3.0 };
         } 
-        else {
+        else if (is_nan(asym_line_input.c_nn)) {
             c_matrix = ComplexTensor<asymmetric_t>(asym_line_input.c_aa, asym_line_input.c_bb, asym_line_input.c_cc, asym_line_input.c_ba, asym_line_input.c_ca, asym_line_input.c_cb);
+        } 
+        else {
+            ComplexTensor4 c_matrix_neutral = ComplexTensor4(asym_line_input.c_aa, asym_line_input.c_bb, asym_line_input.c_cc, asym_line_input.c_nn, asym_line_input.c_ba, asym_line_input.c_ca, asym_line_input.c_na, asym_line_input.c_cb, asym_line_input.c_nb, asym_line_input.c_nc);
+            c_matrix = kron_reduction(c_matrix_neutral);
         }
         return c_matrix;
     }

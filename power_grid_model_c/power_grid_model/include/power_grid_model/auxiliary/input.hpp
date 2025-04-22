@@ -130,6 +130,10 @@ struct AsymLineInput {
     double c_ca{nan};  // Lower triangle matrix values for R, X and C matrices
     double c_cb{nan};  // Lower triangle matrix values for R, X and C matrices
     double c_cc{nan};  // Lower triangle matrix values for R, X and C matrices
+    double c_na{nan};  // Lower triangle matrix values for R, X and C matrices
+    double c_nb{nan};  // Lower triangle matrix values for R, X and C matrices
+    double c_nc{nan};  // Lower triangle matrix values for R, X and C matrices
+    double c_nn{nan};  // Lower triangle matrix values for R, X and C matrices
     double c0{nan};  // Lower triangle matrix values for R, X and C matrices
     double c1{nan};  // Lower triangle matrix values for R, X and C matrices
     double i_n{nan};  // rated current

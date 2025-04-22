@@ -113,7 +113,7 @@ struct get_attributes_list<LineInput> {
 
 template<>
 struct get_attributes_list<AsymLineInput> {
-    static constexpr std::array<MetaAttribute, 34> value{
+    static constexpr std::array<MetaAttribute, 38> value{
             // all attributes including base class
             
             meta_data_gen::get_meta_attribute<&AsymLineInput::id>(offsetof(AsymLineInput, id), "id"),
@@ -147,6 +147,10 @@ struct get_attributes_list<AsymLineInput> {
             meta_data_gen::get_meta_attribute<&AsymLineInput::c_ca>(offsetof(AsymLineInput, c_ca), "c_ca"),
             meta_data_gen::get_meta_attribute<&AsymLineInput::c_cb>(offsetof(AsymLineInput, c_cb), "c_cb"),
             meta_data_gen::get_meta_attribute<&AsymLineInput::c_cc>(offsetof(AsymLineInput, c_cc), "c_cc"),
+            meta_data_gen::get_meta_attribute<&AsymLineInput::c_na>(offsetof(AsymLineInput, c_na), "c_na"),
+            meta_data_gen::get_meta_attribute<&AsymLineInput::c_nb>(offsetof(AsymLineInput, c_nb), "c_nb"),
+            meta_data_gen::get_meta_attribute<&AsymLineInput::c_nc>(offsetof(AsymLineInput, c_nc), "c_nc"),
+            meta_data_gen::get_meta_attribute<&AsymLineInput::c_nn>(offsetof(AsymLineInput, c_nn), "c_nn"),
             meta_data_gen::get_meta_attribute<&AsymLineInput::c0>(offsetof(AsymLineInput, c0), "c0"),
             meta_data_gen::get_meta_attribute<&AsymLineInput::c1>(offsetof(AsymLineInput, c1), "c1"),
             meta_data_gen::get_meta_attribute<&AsymLineInput::i_n>(offsetof(AsymLineInput, i_n), "i_n"),

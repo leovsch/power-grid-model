@@ -352,7 +352,54 @@ TEST_CASE("Test asym line") {
         execute_subcases(input, y_series, c_matrix, base_i, base_y, system_frequency, voltage_lvl);
     }
 
-    SUBCASE("R, X excluding neutral C matrix") { 
+    SUBCASE("R, X and C matrix including neutral") { 
+        AsymLineInput input =  {.id = 1,
+                                .from_node = 2,
+                                .to_node = 3,
+                                .from_status = 1,
+                                .to_status = 1,
+                                .r_aa = 0.4369,
+                                .r_ba = 0.0496,
+                                .r_bb = 0.4369,
+                                .r_ca = 0.0485,
+                                .r_cb = 0.0496,
+                                .r_cc = 0.4369,
+                                .r_na = 0.0496,
+                                .r_nb = 0.0485,
+                                .r_nc = 0.0496,
+                                .r_nn = 0.4369,
+                                .x_aa = 0.8538,
+                                .x_ba = 0.7886, 
+                                .x_bb = 0.8538, 
+                                .x_ca = 0.7663, 
+                                .x_cb = 0.7886,
+                                .x_cc = 0.8538,
+                                .x_na = 0.7886, 
+                                .x_nb = 0.7663,
+                                .x_nc = 0.7886,
+                                .x_nn = 0.8538,
+                                .c_aa = 0.3200,
+                                .c_ba = 0.5400,
+                                .c_bb = 0.3200,
+                                .c_ca = 0.7600,
+                                .c_cb = 0.5400,
+                                .c_cc = 0.3200,
+                                .c_na = 0.5400,
+                                .c_nb = 0.7600,
+                                .c_nc = 0.5400,
+                                .c_nn = 0.3200,
+                                .i_n = 216.0};
+
+        ComplexTensor4 r_matrix = ComplexTensor4(input.r_aa, input.r_bb, input.r_cc, input.r_nn, input.r_ba, input.r_ca, input.r_na, input.r_cb, input.r_nb, input.r_nc);
+        ComplexTensor4 x_matrix = ComplexTensor4(input.x_aa, input.x_bb, input.x_cc, input.x_nn, input.x_ba, input.x_ca, input.x_na, input.x_cb, input.x_nb, input.x_nc);
+        ComplexTensor4 c_matrix_neutral = ComplexTensor4(input.c_aa, input.c_bb, input.c_cc, input.c_nn, input.c_ba, input.c_ca, input.c_na, input.c_cb, input.c_nb, input.c_nc);
+        ComplexTensor<asymmetric_t> c_matrix = kron_reduction(c_matrix_neutral);
+        ComplexTensor4 z = r_matrix + 1.0i * x_matrix;
+        ComplexTensor<asymmetric_t> const y_series = 1 / base_y * inv(kron_reduction(z));
+        execute_subcases(input, y_series, c_matrix, base_i, base_y, system_frequency, voltage_lvl);
+    }
+
+    SUBCASE("R, X and C matrix excluding neutral") { 
         AsymLineInput input =  {.id = 1,
                                 .from_node = 2,
                                 .to_node = 3,
