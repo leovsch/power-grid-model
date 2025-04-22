@@ -89,6 +89,10 @@ def original_data() -> dict[ComponentType, np.ndarray]:
     asym_line["c_ca"] = [-1, np.nan, 2, np.nan]
     asym_line["c_cb"] = [-1, np.nan, 2, np.nan]
     asym_line["c_cc"] = [-1, np.nan, 2, 2]
+    asym_line["c_na"] = [-1, np.nan, 2, 2]
+    asym_line["c_nb"] = [-1, np.nan, 2, 2]
+    asym_line["c_nc"] = [-1, np.nan, 2, 2]
+    asym_line["c_nn"] = [-1, np.nan, 2, 2]
     asym_line["c0"]   = [-1, np.nan, np.nan, np.nan]
     asym_line["c1"]   = [-1, np.nan, np.nan, np.nan]
     asym_line["i_n"] =  [50, 50, 50, 50]
@@ -755,6 +759,10 @@ def test_asym_line_input_data(input_data):
     assert NotGreaterThanError(ComponentType.asym_line, "c_ca", [55], 0) in validation_errors
     assert NotGreaterThanError(ComponentType.asym_line, "c_cb", [55], 0) in validation_errors
     assert NotGreaterThanError(ComponentType.asym_line, "c_cc", [55], 0) in validation_errors
+    assert NotGreaterThanError(ComponentType.asym_line, "c_na", [55], 0) in validation_errors
+    assert NotGreaterThanError(ComponentType.asym_line, "c_nb", [55], 0) in validation_errors
+    assert NotGreaterThanError(ComponentType.asym_line, "c_nc", [55], 0) in validation_errors
+    assert NotGreaterThanError(ComponentType.asym_line, "c_nn", [55], 0) in validation_errors
     assert NotGreaterThanError(ComponentType.asym_line, "c0", [55], 0) in validation_errors
     assert NotGreaterThanError(ComponentType.asym_line, "c1", [55], 0) in validation_errors
     assert MultiFieldValidationError(ComponentType.asym_line, ["r_na","r_nb","r_nc","r_nn"], [56]) in validation_errors
